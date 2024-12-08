@@ -1,7 +1,7 @@
 <script setup>
-import AboutMe from './components/AboutMe.vue'
-import ExperienceComponent from './components/ExperienceComponent.vue'
-import ProjectComponent from './components/ProjectComponent.vue'
+import AboutMe from '/src/components/AboutMe.vue'
+import ExperienceComponent from '/src/components/ExperienceComponent.vue'
+import ProjectComponent from '/src/components/ProjectComponent.vue'
 </script>
 <template>
   <main>
