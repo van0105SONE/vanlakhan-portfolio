@@ -34,7 +34,7 @@
 
         <div class="avatar mx-2">
           <div class="ring-primary ring-offset-base-100 w-10 rounded-full ring ring-offset-2">
-            <img src="C:\Users\HP\Desktop\my-projects\vanlakhan_portfolio\public\image\icon.jpg" />
+            <img src="/public/image/icon.jpg" />
           </div>
         </div>
       </div>
