@@ -60,7 +60,7 @@ import ProjectComponent from './components/ProjectComponent.vue'
             <img class="w-20 h-20" src="/public/image/MongoDB.png" alt="Burger" />
           </div>
           <div class="mx-auto my-4">
-            <img class="w-20 h-20" src="/public/image/linux.png" alt="Burger" />
+            <img class="w-20 h-20" src="/public/image/Linux.png" alt="Burger" />
           </div>
           <div class="mx-auto my-4">
             <img class="w-20 h-20" src="/public/image/Docker.png" alt="Burger" />
