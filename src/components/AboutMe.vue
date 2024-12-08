@@ -6,9 +6,7 @@
           <div
             class="mask mask-hexagon w-96 h-96 lg:w-auto lg:h-auto mx-20 lg:mx-54 lg:mx-auto my-24"
           >
-            <img
-              src="C:\Users\HP\Desktop\my-projects\vanlakhan_portfolio\public\image\img_1269.jpeg"
-            />
+            <img src="/public/image/img_1269.jpeg" />
           </div>
         </div>
       </div>
