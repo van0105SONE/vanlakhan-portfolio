@@ -43,7 +43,7 @@ import ProjectComponent from './components/ProjectComponent.vue'
             <img class="w-20 h-20" src="/public/image/NET core.png" alt="Burger" />
           </div>
           <div class="mx-auto my-4">
-            <img class="w-20 h-20" src="/public/image/nest.js.png" alt="Burger" />
+            <img class="w-20 h-20" src="/public/image/Nest.png" alt="Burger" />
           </div>
 
           <div class="mx-auto my-4">
