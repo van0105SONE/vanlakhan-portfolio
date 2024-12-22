@@ -1,4 +1,7 @@
 <script setup>
+defineProps({
+  themeCallback: Function
+})
 </script>
 <template>
   <div class="container mx-auto">
@@ -23,7 +26,7 @@
           </div>
           <ul
             tabindex="0"
-            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-black"
+            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-"
           >
             <li><a>About Me</a></li>
             <li><a>Experience</a></li>
@@ -40,11 +43,10 @@
       </div>
 
       <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal px-1 text-black">
+        <ul class="menu menu-horizontal px-1 text-warning">
           <li><a>About Me</a></li>
-          <li><a>Exerience</a></li>
+          <li><a>Projects</a></li>
           <li><a>Volunteer & Activity</a></li>
-          <li><a>Course</a></li>
         </ul>
       </div>
     </div>
