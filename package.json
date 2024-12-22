@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "main -d dist",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
