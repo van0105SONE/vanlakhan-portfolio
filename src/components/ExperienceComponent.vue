@@ -1,91 +1,86 @@
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+// Refs
+const animatedElement = ref(null) // Reference to the animated element
+const isScrollingDown = ref(false) // Track scroll direction
+const lastScrollPosition = ref(0) // Track last scroll position
+const shouldSlideIn = ref(true) // Control slide-in animation
+const shouldSlideOut = ref(false) // Control slide-out animation
+
+// Scroll handler
+const handleScroll = () => {
+  const currentScrollPosition = window.scrollY
+
+  // Detect scroll direction
+  isScrollingDown.value = currentScrollPosition > lastScrollPosition.value
+  lastScrollPosition.value = currentScrollPosition
+
+  // Check the element's position relative to the viewport
+  if (animatedElement.value) {
+    const elementRect = animatedElement.value.getBoundingClientRect()
+    const elementBottom = elementRect.bottom // Distance from the bottom of the viewport
+    const threshold = window.innerHeight * 0.2 // 20% of the viewport height
+
+    // Slide in on first load or scroll down
+    if (!isScrollingDown.value && elementBottom > window.innerHeight * 0.6) {
+      shouldSlideIn.value = true
+      shouldSlideOut.value = false
+    }
+
+    // Slide out on scroll up when the element is near the top of the screen
+    if (isScrollingDown.value && elementBottom < threshold) {
+      shouldSlideIn.value = false
+      shouldSlideOut.value = true
+    }
+  }
+}
+
+//props
+defineProps({
+  position: String,
+  company: String,
+  country: String,
+  description: String,
+  color: String,
+  isReverse: Boolean
+})
+// Lifecycle hooks
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+  handleScroll() // Trigger on first load
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
+
 <template>
-  <div class="mt-12">
-    <div>
-      <h6 class="text-4xl text-center font-bold font-pacifico">My Experiences</h6>
-    </div>
-    <div class="mt-12">
-      <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-        <li>
-          <hr />
-          <div class="timeline-middle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              class="h-5 w-5"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </div>
-          <div class="timeline-end mb-10">
-            <div class="card-side w-[600px] bg-base-100 shadow-xl">
-              <div class="card-body">
-                <h2 class="card-title">Student At University of LAOS, LAOS</h2>
-                <p>April, 2020 TO September, 2024</p>
-              </div>
-            </div>
-          </div>
-          <hr />
-        </li>
-        <li>
-          <hr />
-          <div class="timeline-middle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              class="h-5 w-5"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </div>
-          <div class="timeline-start mb-10 md:text-end">
-            <div class="card-side bg-base-100 w-[600px] shadow-xl">
-              <div class="card-body">
-                <h2 class="card-title">Software Developer At LTS VENTURES, LAOS</h2>
-                <p class="text-left">December, 2023 TO April 2024</p>
-              </div>
-            </div>
-          </div>
-          <hr />
-        </li>
-        <li>
-          <hr />
-          <div class="timeline-middle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              class="h-5 w-5"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </div>
-          <div class="timeline-end mb-10">
-            <div class="card-side w-[600px] bg-base-100 shadow-xl">
-              <div class="card-body">
-                <h2 class="card-title">Backend Developer At ATCODE, LAOS</h2>
-                <p>April, 2024 TO PRESENT</p>
-              </div>
-            </div>
-          </div>
-          <hr />
-        </li>
-      </ul>
+  <div class="hero bg-base-200 h-96">
+    <div
+      ref="animatedElement"
+      class="hero-content flex-col animate-slideRight"
+      :class="{
+        'animate-slideRotateIn': shouldSlideIn,
+        'animate-slideRotateOut': shouldSlideOut,
+        'lg:flex-row': !isReverse,
+        'lg:flex-row-reverse': isReverse
+      }"
+      id="animatedElement"
+    >
+      <img
+        src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+        class="max-w-sm rounded-lg shadow-2xl"
+      />
+      <div>
+        <h1 class="text-2xl font-bold bg-gradient-to-r from-mt-blue to-mt-green bg-clip-text">
+          {{ position }}💻 at <span :class="`text-[${color}]`">{{ company }}</span
+          >, {{ country }}🏳️‍🌈
+        </h1>
+        <p class="py-6">
+          {{ description }}
+        </p>
+      </div>
     </div>
   </div>
 </template>
