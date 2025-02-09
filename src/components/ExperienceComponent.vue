@@ -44,6 +44,7 @@ defineProps({
   color: String,
   isReverse: Boolean
 })
+
 // Lifecycle hooks
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
@@ -56,30 +57,47 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="hero bg-base-200 h-96">
-    <div
-      ref="animatedElement"
-      class="hero-content flex-col animate-slideRight"
-      :class="{
-        'animate-slideRotateIn': shouldSlideIn,
-        'animate-slideRotateOut': shouldSlideOut,
-        'lg:flex-row': !isReverse,
-        'lg:flex-row-reverse': isReverse
-      }"
-      id="animatedElement"
-    >
-      <img
-        src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-        class="max-w-sm rounded-lg shadow-2xl"
-      />
-      <div>
-        <h1 class="text-2xl font-bold bg-gradient-to-r from-mt-blue to-mt-green bg-clip-text">
+  <div>
+    <div class="hidden lg:block hero bg-base-200 h-96">
+      <div
+        ref="animatedElement"
+        class="hero-content flex-col animate-slideRight"
+        :class="{
+          'animate-slideRotateIn': shouldSlideIn,
+          'animate-slideRotateOut': shouldSlideOut,
+          'lg:flex-row': !isReverse,
+          'lg:flex-row-reverse': isReverse
+        }"
+        id="animatedElement"
+      >
+        <img
+          src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+          class="max-w-sm rounded-lg shadow-2xl"
+        />
+        <div>
+          <h1 class="text-2xl font-bold bg-gradient-to-r from-mt-blue to-mt-green bg-clip-text">
+            {{ position }}💻 at <span :class="`text-[${color}]`">{{ company }}</span
+            >, {{ country }}🏳️‍🌈
+          </h1>
+          <p class="py-6">
+            {{ description }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="visible lg:hidden mx-auto my-10 card bg-base-100 w-full shadow-xl">
+      <figure>
+        <img
+          src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+          alt="Shoes"
+        />
+      </figure>
+      <div class="card-body text-center`">
+        <h2 class="text-xl font-bold bg-gradient-to-r from-mt-blue to-mt-green bg-clip-text">
           {{ position }}💻 at <span :class="`text-[${color}]`">{{ company }}</span
           >, {{ country }}🏳️‍🌈
-        </h1>
-        <p class="py-6">
-          {{ description }}
-        </p>
+        </h2>
+        <p>{{ description }}</p>
       </div>
     </div>
   </div>
