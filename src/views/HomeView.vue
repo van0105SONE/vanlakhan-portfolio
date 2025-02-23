@@ -99,8 +99,36 @@ import ActivityComponent from '@/components/ActivityComponent.vue'
                   :color="'#dc34c3'"
                   :company="'ATCODE'"
                   :country="'Laos'"
-                  :description="'Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.'"
-                />
+                  :description="''"
+                >
+                  <ul class="list-none space-y-2">
+                    <li class="flex items-center">
+                      <span class="w-5 h-5 mr-2 text-blue-500">💻</span>
+                      <p>
+                        <span class="font-bold">Designed and developed </span>
+                        scalable lottery backend systems from concept to deployment, leveraging
+                        technologies Nestjs to handle high-traffic workloads and ensure 99.9% system
+                        uptime
+                      </p>
+                    </li>
+                    <li class="flex items-center">
+                      <span class="w-5 h-5 mr-2 text-blue-500">💵</span>
+                      <p>
+                        <span class="font-bold">Integrated mobile payment</span> gateways into the
+                        backend system and implementing encryption protocols to safeguard sensitive
+                        customer data.
+                      </p>
+                    </li>
+                    <li class="flex items-center">
+                      <span class="w-5 h-5 mr-2 text-purple-500">🎯</span>
+                      <p>
+                        <span class="font-bold"> Optimized database performance</span>
+                        by implementing database replica (read and write),table partition and query
+                        optimization techniques, reducing query response times by 20%.
+                      </p>
+                    </li>
+                  </ul>
+                </ExperienceComponent>
 
                 <ExperienceComponent
                   :is-reverse="true"
@@ -109,7 +137,33 @@ import ActivityComponent from '@/components/ActivityComponent.vue'
                   :company="'DGT Asia limited'"
                   :country="'Hongkong'"
                   :description="'Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.'"
-                />
+                >
+                  <ul class="list-none space-y-2">
+                    <li class="flex items-center">
+                      <span class="w-5 h-5 mr-2 text-blue-500">💻</span>
+                      <p>
+                        <span class="font-bold">Maintained and enhanced</span>
+                        a high-availability casino management system, ensuring 99.99% uptime and
+                        seamless operation for 24/7 gaming environments.
+                      </p>
+                    </li>
+                    <li class="flex items-center">
+                      <span class="w-5 h-5 mr-2 text-blue-500">💵</span>
+                      <p>
+                        <span class="font-bold">Developed and deployed new features</span>
+                        to support Sale and redemption product in casino.
+                      </p>
+                    </li>
+                    <li class="flex items-center">
+                      <span class="w-5 h-5 mr-2 text-purple-500">🎯</span>
+                      <p>
+                        <span class="font-bold"> Troubleshot and resolved critical system</span>
+                        issues in production environments, minimizing downtime and ensuring
+                        uninterrupted casino operations during peak hours.
+                      </p>
+                    </li>
+                  </ul>
+                </ExperienceComponent>
 
                 <ExperienceComponent
                   :is-reverse="false"
@@ -118,7 +172,27 @@ import ActivityComponent from '@/components/ActivityComponent.vue'
                   :company="'LTS VENTURES'"
                   :country="'Laos'"
                   :description="'Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.'"
-                />
+                >
+                  <ul class="list-none space-y-2">
+                    <li class="flex items-center">
+                      <span class="w-5 h-5 mr-2 text-blue-500">💻</span>
+                      <p>
+                        <span class="font-bold">Contributed</span>
+                        to the development of a microfinance software solution, enabling seamless
+                        loan management, repayment tracking, and financial reporting for over 10,000
+                        users
+                      </p>
+                    </li>
+                    <li class="flex items-center">
+                      <span class="w-5 h-5 mr-2 text-blue-500">💵</span>
+                      <p>
+                        <span class="font-bold">Developed and launched</span>
+                        a responsive company portfolio and customer website using modern web
+                        technologies (e.g., HTML5, CSS3, JavaScript, vue).
+                      </p>
+                    </li>
+                  </ul>
+                </ExperienceComponent>
               </div>
 
               <ProjectComponent />

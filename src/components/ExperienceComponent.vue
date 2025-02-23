@@ -42,7 +42,8 @@ defineProps({
   country: String,
   description: String,
   color: String,
-  isReverse: Boolean
+  isReverse: Boolean,
+  imagePath: String
 })
 
 // Lifecycle hooks
@@ -58,7 +59,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div>
-    <div class="hidden lg:block hero bg-base-200 h-96">
+    <div class="hidden lg:block hero bg-base-200 h-64">
       <div
         ref="animatedElement"
         class="hero-content flex-col animate-slideRight"
@@ -70,34 +71,28 @@ onBeforeUnmount(() => {
         }"
         id="animatedElement"
       >
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-          class="max-w-sm rounded-lg shadow-2xl"
-        />
+        <div class="max-w-sm rounded-lg shadow-2xl"></div>
         <div>
           <h1 class="text-2xl font-bold bg-gradient-to-r from-mt-blue to-mt-green bg-clip-text">
             {{ position }}💻 at <span :class="`text-[${color}]`">{{ company }}</span
             >, {{ country }}🏳️‍🌈
           </h1>
-          <p class="py-6">
-            {{ description }}
-          </p>
+          <div class="py-6 px-4">
+            <slot></slot>
+          </div>
         </div>
       </div>
     </div>
     <div class="visible lg:hidden mx-auto my-10 card bg-base-100 w-full shadow-xl">
       <figure>
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-          alt="Shoes"
-        />
+        <div class="max-w-sm rounded-lg shadow-2xl"></div>
       </figure>
       <div class="card-body text-center`">
         <h2 class="text-xl font-bold bg-gradient-to-r from-mt-blue to-mt-green bg-clip-text">
           {{ position }}💻 at <span :class="`text-[${color}]`">{{ company }}</span
           >, {{ country }}🏳️‍🌈
         </h2>
-        <p>{{ description }}</p>
+        <slot></slot>
       </div>
     </div>
   </div>

@@ -16,7 +16,7 @@
 
     <div class="mockup-window h bg-gray-300 border mt-10 mx-4">
       <div class="bg-base-200 min-h-[50vh] flex justify-center">
-        <div class="grid grid-cols-2 xl:grid-cols-7 gap-10 mt-12">
+        <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-7 gap-10 mt-12">
           <div class="mx-auto my-4">
             <img class="w-20 h-20" src="/public/image/c-sharp.png" alt="Burger" />
           </div>
