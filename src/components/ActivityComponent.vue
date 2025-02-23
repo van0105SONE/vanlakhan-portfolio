@@ -61,7 +61,7 @@
           <div>
             <img
               class="h-auto max-w-full rounded-lg object-cover object-center"
-              src="/public/image/IMG_1268.jpg"
+              src="/public/image/img_1268.jpg"
               alt="gallery-photo"
             />
           </div>
